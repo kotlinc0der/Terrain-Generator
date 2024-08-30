@@ -8,7 +8,7 @@
 ## Key Features
 
 * **Interactive Parameter Adjustment:**  Manipulate grid size, amplitude, frequency, and octaves to see how they affect terrain formation.
-* **Perlin Noise and Fractal Brownian Motion:**  Experience use of procedural algorithms in terrain generation.
+* **Perlin Noise and Fractal Brownian Motion:**  Experience use of procedural generation algorithms in terrain generation.
 * **Cross-Platform Compatibility:**  Run the demo on Android, Linux, Windows, and MacOS.
 * **Image Export:**  Save the generated terrain as an image to your device.
 
