@@ -1,4 +1,4 @@
-package org.kotinc0der.app
+package org.kotlinc0der.app
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -6,19 +6,18 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.IO
 import kotlinx.coroutines.launch
-import org.kotinc0der.app.AppColors.DEEPER_WATER
-import org.kotinc0der.app.AppColors.DEEP_WATER
-import org.kotinc0der.app.AppColors.EVEN_DEEPER_WATER
-import org.kotinc0der.app.AppColors.GRASS
-import org.kotinc0der.app.AppColors.MOUNTAIN_BASE
-import org.kotinc0der.app.AppColors.MOUNTAIN_MID
-import org.kotinc0der.app.AppColors.ROCKY_SLOPES
-import org.kotinc0der.app.AppColors.SAND
-import org.kotinc0der.app.AppColors.SHALLOW_WATER
-import org.kotinc0der.app.AppColors.SNOWY_PEAK
-import org.kotinc0der.app.AppColors.SNOWY_SLOPES
+import org.kotlinc0der.app.AppColors.DEEPER_WATER
+import org.kotlinc0der.app.AppColors.DEEP_WATER
+import org.kotlinc0der.app.AppColors.EVEN_DEEPER_WATER
+import org.kotlinc0der.app.AppColors.GRASS
+import org.kotlinc0der.app.AppColors.MOUNTAIN_BASE
+import org.kotlinc0der.app.AppColors.MOUNTAIN_MID
+import org.kotlinc0der.app.AppColors.ROCKY_SLOPES
+import org.kotlinc0der.app.AppColors.SAND
+import org.kotlinc0der.app.AppColors.SHALLOW_WATER
+import org.kotlinc0der.app.AppColors.SNOWY_PEAK
+import org.kotlinc0der.app.AppColors.SNOWY_SLOPES
 
 class AppViewModel : ViewModel() {
     private val _gridSize = mutableStateOf(1000)

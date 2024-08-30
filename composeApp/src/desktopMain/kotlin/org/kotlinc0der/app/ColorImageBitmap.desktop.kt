@@ -1,4 +1,4 @@
-package org.kotinc0der.app
+package org.kotlinc0der.app
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
@@ -19,13 +19,21 @@ actual fun getImageBitmap(colors: List<List<Color>>): ImageBitmap {
     val height = colors.size
 
     val bytes = ByteArray(width * height * bytesPerPixel)
-    colors.forEachIndexed { x, row ->
-        row.forEachIndexed { y, color ->
-            with(color.convert(ColorSpaces.Srgb).value) {
-                repeat(bytesPerPixel) {
-                    bytes[x * width * bytesPerPixel + y * bytesPerPixel + it] =
-                        shr(32 + it * 8).toByte()
-                }
+
+    // Color value is represented by ULong (8 bytes) wheres the pixel is represented by 4 bytes
+    // so offset is 4 bytes * 8 = 32 bits
+    val bitOffset = 32
+
+    colors.flatten().forEachIndexed { colorIndex: Int, color: Color ->
+        with(color.convert(ColorSpaces.Srgb).value) {
+            // Extract the color components into separate bytes
+            // 4 bytes per pixel (Alpha, Red, Green, Blue)
+            // at byteIndex = 0; shift by offset (padded 0s) and collect Alpha using .toByte()
+            // at byteIndex = 1; shift by Offset + 8 bits and collect Red byte
+            // ...
+            repeat(bytesPerPixel) { byteIndex ->
+                bytes[bytesPerPixel * colorIndex + byteIndex] =
+                    shr(bitOffset + byteIndex * 8).toByte()
             }
         }
     }
@@ -57,7 +65,7 @@ actual fun saveImageBitmap(imageBitmap: ImageBitmap, filename: String) {
             ImageIO.write(bufferedImage, "png", file)
             Desktop.getDesktop().open(file)
         } catch (e: Exception) {
-            // Handle exceptions (e.g., show an error message)
+            e.printStackTrace()
         }
     }
 }

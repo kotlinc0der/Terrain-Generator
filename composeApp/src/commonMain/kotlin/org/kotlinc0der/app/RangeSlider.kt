@@ -1,4 +1,4 @@
-package org.kotinc0der.app
+package org.kotlinc0der.app
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding

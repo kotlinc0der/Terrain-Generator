@@ -19,17 +19,6 @@ kotlin {
     
     jvm("desktop")
     
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "ComposeApp"
-            isStatic = true
-        }
-    }
-    
     sourceSets {
         val desktopMain by getting
         
@@ -55,7 +44,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.kotinc0der.app"
+    namespace = "org.kotlinc0der.app"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
@@ -63,7 +52,7 @@ android {
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        applicationId = "org.kotinc0der.app"
+        applicationId = "org.kotlinc0der.app"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
@@ -93,11 +82,11 @@ android {
 
 compose.desktop {
     application {
-        mainClass = "org.kotinc0der.app.MainKt"
+        mainClass = "org.kotlinc0der.app.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "org.kotinc0der.app"
+            packageName = "org.kotlinc0der.app"
             packageVersion = "1.0.0"
         }
     }

@@ -1,4 +1,4 @@
-package org.kotinc0der.app
+package org.kotlinc0der.app
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Arrangement
@@ -107,7 +107,8 @@ private fun ControlSection(
 
             Button(onClick = {
                 saveImageBitmap(viewModel.bitmap.value, "terrain.png")
-            }) {
+            },
+                enabled = !viewModel.isLoading.value) {
                 Text("Save Image")
             }
         }

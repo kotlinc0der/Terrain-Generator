@@ -1,4 +1,4 @@
-package org.kotinc0der.app
+package org.kotlinc0der.app
 
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
